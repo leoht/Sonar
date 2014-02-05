@@ -1,0 +1,99 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sonar</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500,300' rel='stylesheet' type='text/css'>
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="main-container scene">
+
+            <div class="scene-tracks scene-grid">
+                <div class="scene-track scene-track-1">
+                    <div class="track-head"></div>
+
+                    <div class="slot slot-1"></div>
+                    <div class="slot slot-2"></div>
+                    <div class="slot slot-3"></div>
+                    <div class="slot slot-4"></div>
+                    <div class="slot slot-5"></div>
+                    <div class="slot slot-6"></div>
+                    <div class="slot slot-7"></div>
+                    <div class="slot slot-8"></div>
+                    <div class="slot slot-9"></div>
+                    
+                </div>
+            </div>
+
+            <div class="scene-controls unselectable">
+                    <button onclick="clip.play()" >Play</button>
+            </div>
+        </div>
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <!-- build:js scripts/main.js -->
+
+        <script src="scripts/resources.js"></script>
+        <script src="scripts/BufferLoader.js"></script>
+        <script src="scripts/SoundEngine.js"></script>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/view.js"></script>
+        <script src="scripts/Components/Row.js"></script>
+        <script src="scripts/Components/Clip.js"></script>
+        <script src="scripts/Components/Track.js"></script>
+        <script src="scripts/Components/Scene.js"></script>
+        
+        <!-- endbuild -->
+
+        <script>
+            var mainScene = new Scene()
+            var engine = new SoundEngine();
+            var clip
+            engine.init()
+
+            function onBufferLoaded() {
+
+                initUI()
+
+                $('.slot').dblclick(function () {
+                    clip = new Clip('kick')
+                    $('.scene').prepend(clip.render().css('display', 'none'))
+                    $('.scene').find('.clip').fadeIn(300)
+
+                    initUI()
+                })
+            }
+        </script>
+
+        
+</body>
+</html>

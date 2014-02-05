@@ -1,0 +1,124 @@
+body {
+    background: #000;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    color: white;
+    margin: 0;
+
+    margin-bottom: 130px;
+}
+
+*.unselectable {
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.editable-content {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.editable-content:focus {
+    background-color: #ddd;
+    color: #000;
+}
+
+/*  CLIP **/
+
+.clip-title-bar {
+    width: 100%; height: 20px;
+    background: #000;
+    padding: 12px;
+    position: fixed;
+    font-weight: 300;
+    z-index: 25;
+}
+
+.clip-grid { padding-top: 44px;}
+
+/*  COLUMN SETUP  */
+.track-element, .track-head, .slot {
+    display: block;
+    float:left;
+    margin: 0;
+    background-color: #5693dd;
+    width: 5.45%;
+    border-right: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.slot, .track-head { width: 9.85%; cursor: pointer; }
+
+.track-element.beat {
+    cursor: pointer;
+}
+
+/*
+.beat-1 { background-image: url(../images/beatone.png); background-repeat: no-repeat; background-position: center center; }
+.beat-3 { background-image: url(../images/beattwo.png); background-repeat: no-repeat; background-position: center center; }
+.beat-5 { background-image: url(../images/beatthree.png); background-repeat: no-repeat; background-position: center center; }
+.beat-7 { background-image: url(../images/beatfour.png); background-repeat: no-repeat; background-position: center center; }
+*/
+.track-element:first-child { margin-left: 0; }
+.track-element.last-of-track { border-right: 0; background-color: #cfe9ff; }
+
+.track-element.source-chooser, .track-head {
+    background-color: #030d33;
+    position: relative;
+}
+
+.track-element.source-chooser span {
+    display: block;
+    position: absolute; bottom: 5px; right: 5px;
+    font-size: 18px; text-transform: uppercase;
+    font-weight: 300;
+    color: #aaa;
+}
+
+/*.track-element.beat:hover {
+    background-color: #03a187;
+}*/
+.track-element.beat.beat-enabled {
+    background-color: #89bad9;
+}
+
+
+/*  GROUPING  */
+.track:before,
+.track:after {
+    content:"";
+    display:table;
+}
+.track:after {
+    clear:both;
+}
+
+
+.beat-note {
+    width: 25%;
+    height: 25%;
+    float: left;
+    display: block;
+}
+
+.beat-note:hover {
+    background: #eee;
+}
+
+.beat-note.enabled {
+    background-color: #f18f83;
+}
+
+.scene-controls {
+    position: fixed;
+    bottom: 0; left 0;
+    width: 100%;
+    z-index: 40;
+    height: 100px;
+    background: #030d33;
+
+    padding: 15px;
+}
