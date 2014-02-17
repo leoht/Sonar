@@ -29,7 +29,7 @@ Row.prototype.render = function () {
 	$(root).append(' <div class="track-element source-chooser unselectable"><span>'+notesLabelsMap[this.noteIndex]+'</span></div>')
 
 	for(var i = 1 ; i <= this.stepMap.length ; i++) {
-		$(root).append('<div class="track-element beat beat-'+i+'">')
+		$(root).append('<div class="track-element beat beat-'+i+'" data-note-index="'+this.noteIndex+'">')
 	}
  	
  	$(root).append('<div class="track-element last-of-track"></div>')

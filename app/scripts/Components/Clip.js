@@ -7,6 +7,7 @@ function Clip (soundName) {
 	this.durationInSteps = 16
 	this.engine = engine
 	this.bufferMap = bufferList[soundName]
+	this.soundName = soundName
 
 	this.timelineTimer = null
 	this.stepTimers = []
@@ -25,6 +26,7 @@ function Clip (soundName) {
 };
 
 Clip.prototype.setSoundName = function(soundName) {
+	this.soundName = soundName
 	this.bufferMap = bufferList[soundName]
 };
 
@@ -45,7 +47,7 @@ Clip.prototype.render = function () {
 };
 
 Clip.prototype.renderTitleBar = function() {
-	var html = '<div class="clip-title-bar unselectable">';
+	var html = '<div class="clip-title-bar unselectable" data-sound="'+this.soundName+'">';
 	html +=	   '<span class="clip-title editable-content" contenteditable>'+this.name+'</span>'
 	html +=	   '</div>'
 	return $(html)

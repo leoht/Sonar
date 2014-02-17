@@ -20,6 +20,8 @@ SoundEngine.prototype.init = function() {
 
     var bufferLoadingList = [];
 
+    console.log('Loading sounds...')
+
     for (var sound in BUFFER_RESOURCES_LIST) {
 
     	this.bufferSoundsTotal++
@@ -59,6 +61,7 @@ SoundEngine.prototype.onBufferPartiallyLoaded = function () {
 	this.bufferSoundsLoaded++
 
 	if (this.bufferSoundsLoaded == this.bufferSoundsTotal) {
+        console.log('Done !')
 		onBufferLoaded();
 	}
 }

@@ -8,10 +8,18 @@ var initUI = function () {
 
     $(window).resize(function () {
         $('.track-element').css('height', $('.track-element').width()-5)
-        $('.track-head,  .slot').css('height', $('.track-head').width()/2)
     })
 
     $(window).resize()
+
+    $('.beat').click(function () {
+        if (!clip.paused) return
+            
+        var sound = $('.clip').attr('data-sound')
+        var noteIndex = parseInt($(this).attr('data-note-index'))
+        engine.playSound(clip.bufferMap[noteIndex], 0)
+    })
+
 
     $('.beat').mousedown(function (e) {
         isEnablingMultipleBeats = true;
@@ -33,14 +41,7 @@ var initUI = function () {
         e.preventDefault()
     })
 
-     $('.beat-note').click(function (e) {
-        $(this).toggleClass('enabled')
-
-        if ($(this).parent().hasClass('beat-enabled')) {
-            e.stopPropagation() // avoid propagation that would disable the master beat
-        }
-    })
-
+    
     // $(document).bind("contextmenu", function(event) {
     //     event.preventDefault();
 
@@ -76,6 +77,7 @@ var initUI = function () {
 
         if (e.which == 27) {
             $('.clip').fadeOut(200)
+            clip.pause()
         }
     })
 
@@ -83,5 +85,9 @@ var initUI = function () {
         clip.pause()
     })
 
+    $('.track-segment').click(function () {
+        $(this).toggleClass('track-segment-enabled')
+    })
 
+    
 };

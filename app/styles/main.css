@@ -28,7 +28,7 @@ body {
 
 /*  CLIP **/
 
-.clip-title-bar {
+.clip-title-bar, .scene-title-bar {
     width: 100%; height: 20px;
     background: #000;
     padding: 12px;
@@ -37,10 +37,10 @@ body {
     z-index: 25;
 }
 
-.clip-grid { padding-top: 44px;}
+.clip-grid, .scene-grid { padding-top: 44px;}
 
 /*  COLUMN SETUP  */
-.track-element, .track-head, .slot {
+.track-element {
     display: block;
     float:left;
     margin: 0;
@@ -50,7 +50,6 @@ body {
     border-bottom: 1px solid #333;
 }
 
-.slot, .track-head { width: 9.85%; cursor: pointer; }
 
 .track-element.beat {
     cursor: pointer;
@@ -118,7 +117,55 @@ body {
     width: 100%;
     z-index: 40;
     height: 100px;
-    background: #030d33;
+    background: #343434;
 
     padding: 15px;
 }
+
+.scene-track {
+    height: 60px;
+}
+
+.track-head { display: block; float: left; position: relative; background-color: #343434;  width: 15%; height: inherit;  }
+.track-head-color {
+    width: 20px;
+    height: 20px;
+    position: absolute; top: 15px; left: 15px;
+    background-color: #d35400;
+}
+.track-head-title {
+    position: absolute; top: 0; left: 50px;
+}
+
+.track-source {
+    position: absolute; top: 26px; left: 50px;
+}
+
+.track-slot-wrapper {
+    display: block;
+    float: left;
+    width: 84%;
+    overflow: auto;
+    overflow-y: hidden;
+    height: inherit;
+}
+
+.track-slot {
+    display: block;
+    float: left;
+    width: 2000px;
+    background-color: #ddd;
+    height: inherit;
+}
+
+.track-segment {
+    width: 100px;
+    height: inherit;
+    border-right: 1px solid #999;
+    float: left; display: block;
+}
+
+.track-segment-enabled {
+    background-color: #d35400;
+}
+
